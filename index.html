@@ -182,13 +182,13 @@
 </template>
 <script>
 
-  var fireballSize = 22,
-      wizardWidth = 70,
-      wizardHeightFactor = 1.337,
-      wizardSpeed = 3;
+  var fireballSize = 22;
+  var wizardWidth = 70;
+  var wizardHeightFactor = 1.337;
+  var wizardSpeed = 3;
 
-  function getFireballSpeed (isWindFromLeft) {
-    if (isWindFromLeft) {
+  function getFireballSpeed (isLeftWind) {
+    if (isLeftWind) {
       return 5;
     } 
     return 2;
