@@ -6,6 +6,10 @@
   var setupClose = setup.querySelector('.setup-close');
   var userNameInput = document.querySelector('.setup-user-name');
 
+  var startPositionX = 50;
+  var startPositionY = 80;
+
+  var isSetupInputFocused = false;
   /**
   * @author Andrew Slivka <kleef001@gmail.com>
   *
@@ -17,11 +21,13 @@
   *
   * @returns {void}
   */
-  var isSetupInputFocused = false;
+
   var onPopupEscPress = function (evt) {
     if (evt.key === 'Escape' && !isSetupInputFocused) {
       evt.preventDefault();
       closePopup();
+      setup.style.top = startPositionY + 'px';
+      setup.style.left = startPositionX + '%';
     }
   };
 
@@ -107,6 +113,8 @@
   */
   setupClose.addEventListener('click', function () {
     closePopup();
+    setup.style.top = startPositionY + 'px';
+    setup.style.left = startPositionX + '%';
   });
 
   /**
@@ -123,6 +131,8 @@
   setupClose.addEventListener('keydown', function (evt) {
     if (evt.key === 'Enter') {
       closePopup();
+      setup.style.top = startPositionY + 'px';
+      setup.style.left = startPositionX + '%';
     }
   });
 })();

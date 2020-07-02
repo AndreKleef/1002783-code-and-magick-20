@@ -11,6 +11,7 @@
       x: evt.clientX,
       y: evt.clientY
     };
+    // console.log(startCoords, 'что это?');
 
     var dragged = false;
 
@@ -31,7 +32,6 @@
 
       setupDialogElement.style.top = (setupDialogElement.offsetTop - shift.y) + 'px';
       setupDialogElement.style.left = (setupDialogElement.offsetLeft - shift.x) + 'px';
-
     };
 
     var onMouseUp = function (upEvt) {

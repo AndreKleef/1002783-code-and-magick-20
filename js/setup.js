@@ -38,7 +38,7 @@
   * @return {void}
   */
   wizardCoatColor.addEventListener('click', function () {
-    var randomCoatColor = window.util.randomSelection(window.util.wizardCoatColorList);
+    var randomCoatColor = window.util.getRandomElement(window.wizard.WIZARDS_COAT_COLOR);
 
     wizardCoatColor.style.fill = randomCoatColor;
     coatColorInput.value = wizardCoatColor.style.fill;
@@ -53,7 +53,7 @@
   * @return {void}
   */
   wizardEyesColor.addEventListener('click', function () {
-    var randomEyesColor = window.util.randomSelection(window.util.wizardEyesColorList);
+    var randomEyesColor = window.util.getRandomElement(window.wizard.WIZARDS_EYES_COLOR);
 
     wizardEyesColor.style.fill = randomEyesColor;
     eyesColorInput.value = wizardEyesColor.style.fill;
@@ -68,7 +68,7 @@
   * @return {void}
   */
   setupFireBallWrap.addEventListener('click', function () {
-    var randomColor = window.util.randomSelection(FIREBALLS);
+    var randomColor = window.util.getRandomElement(FIREBALLS);
 
     setupFireBallWrap.style.background = randomColor;
     fireballColorInput.value = randomColor;
