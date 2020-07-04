@@ -11,7 +11,6 @@
       x: evt.clientX,
       y: evt.clientY
     };
-    // console.log(startCoords, 'что это?');
 
     var dragged = false;
 

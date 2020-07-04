@@ -4,12 +4,10 @@
   var setupOpen = document.querySelector('.setup-open-icon');
   var setup = document.querySelector('.setup');
   var setupClose = setup.querySelector('.setup-close');
-  var userNameInput = document.querySelector('.setup-user-name');
 
   var startPositionX = 50;
   var startPositionY = 80;
 
-  var isSetupInputFocused = false;
   /**
   * @author Andrew Slivka <kleef001@gmail.com>
   *
@@ -23,21 +21,10 @@
   */
 
   var onPopupEscPress = function (evt) {
-    if (evt.key === 'Escape' && !isSetupInputFocused) {
-      evt.preventDefault();
-      closePopup();
-      setup.style.top = startPositionY + 'px';
-      setup.style.left = startPositionX + '%';
-    }
+    window.util.isEscape(evt, closePopup);
+    setup.style.top = startPositionY + 'px';
+    setup.style.left = startPositionX + '%';
   };
-
-  userNameInput.addEventListener('focus', function () {
-    isSetupInputFocused = true;
-  });
-
-  userNameInput.addEventListener('blur', function () {
-    isSetupInputFocused = false;
-  });
 
   /**
   * @author Andrew Slivka <kleef001@gmail.com>
@@ -95,9 +82,7 @@
   * @returns {void}
   */
   setupOpen.addEventListener('keydown', function (evt) {
-    if (evt.key === 'Enter') {
-      openPopup();
-    }
+    window.util.isEnter(evt, closePopup);
   });
 
   /**
@@ -129,10 +114,8 @@
   * @returns {void}
   */
   setupClose.addEventListener('keydown', function (evt) {
-    if (evt.key === 'Enter') {
-      closePopup();
-      setup.style.top = startPositionY + 'px';
-      setup.style.left = startPositionX + '%';
-    }
+    window.util.isEnter(evt, closePopup);
+    setup.style.top = startPositionY + 'px';
+    setup.style.left = startPositionX + '%';
   });
 })();

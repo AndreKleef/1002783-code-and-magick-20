@@ -14,10 +14,6 @@
 
   var fragment = document.createDocumentFragment();
 
-  window.wizard = {
-    WIZARDS_COAT_COLOR: WIZARDS_COAT_COLOR,
-    WIZARDS_EYES_COLOR: WIZARDS_EYES_COLOR
-  };
   /**
   * @author Andrew Slivka <kleef001@gmail.com>
   *
@@ -91,5 +87,10 @@
   }
 
   similarListElement.appendChild(fragment);
+
+  window.wizard = {
+    WIZARDS_COAT_COLOR: WIZARDS_COAT_COLOR,
+    WIZARDS_EYES_COLOR: WIZARDS_EYES_COLOR
+  };
 })();
 
