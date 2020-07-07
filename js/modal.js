@@ -21,7 +21,11 @@
   */
 
   var onPopupEscPress = function (evt) {
-    window.util.isEscape(evt, closePopup);
+    var isEscKeyPressed = window.util.isEscape(evt);
+
+    if (isEscKeyPressed && !window.setup.isSetupInputFocused) {
+      closePopup();
+    }
     setup.style.top = startPositionY + 'px';
     setup.style.left = startPositionX + '%';
   };
@@ -113,8 +117,14 @@
   *
   * @returns {void}
   */
+
   setupClose.addEventListener('keydown', function (evt) {
-    window.util.isEnter(evt, closePopup);
+    var isEnterKeyPressed = window.util.isEnter(evt);
+
+    if (isEnterKeyPressed) {
+      closePopup();
+    }
+
     setup.style.top = startPositionY + 'px';
     setup.style.left = startPositionX + '%';
   });

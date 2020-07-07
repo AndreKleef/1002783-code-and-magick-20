@@ -9,6 +9,16 @@
   var setupFireBallWrap = document.querySelector('.setup-fireball-wrap');
 
   var FIREBALLS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', 'e6e848'];
+
+  var isSetupInputFocused = false;
+
+  userNameInput.addEventListener('focus', function () {
+    isSetupInputFocused = true;
+  });
+
+  userNameInput.addEventListener('blur', function () {
+    isSetupInputFocused = false;
+  });
   /**
   * @author Andrew Slivka <kleef001@gmail.com>
   *
@@ -94,4 +104,8 @@
       customValidityInput('');
     }
   });
+
+  window.setup = {
+    isSetupInputFocused: isSetupInputFocused
+  };
 })();

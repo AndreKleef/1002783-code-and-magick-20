@@ -10,31 +10,18 @@
   var ENTER_KEY = 'Enter';
   var ESC_KEY = 'Escape';
 
-  var isSetupInputFocused = false;
-  var userNameInput = document.querySelector('.setup-user-name');
+  var isEscape = function (evt) {
+    return evt.key === ESC_KEY && !window.setup.isSetupInputFocused;
+  };
 
-  userNameInput.addEventListener('focus', function () {
-    isSetupInputFocused = true;
-  });
-
-  userNameInput.addEventListener('blur', function () {
-    isSetupInputFocused = false;
-  });
+  var isEnter = function (evt) {
+    return evt.key === ENTER_KEY;
+  };
 
   window.util = {
     getRandomElement: getRandomElement,
-    isEscape: function (evt, action) {
-      if (evt.key === ESC_KEY && !isSetupInputFocused) {
-        evt.preventDefault();
-        action();
-      }
-    },
-    isEnter: function (evt, action) {
-      if (evt.key === ENTER_KEY) {
-        evt.preventDefault();
-        action();
-      }
-    }
+    isEscape: isEscape,
+    isEnter: isEnter
   };
 })();
 
