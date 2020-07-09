@@ -86,7 +86,11 @@
   * @returns {void}
   */
   setupOpen.addEventListener('keydown', function (evt) {
-    window.util.isEnter(evt, closePopup);
+    var isEnterKeyPressed = window.util.isEnter(evt);
+
+    if (isEnterKeyPressed) {
+      closePopup();
+    }
   });
 
   /**
