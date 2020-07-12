@@ -152,13 +152,15 @@
     document.body.insertAdjacentElement('afterbegin', node);
   };
 
-  window.load(successHandler, errorHandler);
+  window.backend.load(successHandler, errorHandler);
 
   var form = document.querySelector('.setup-wizard-form');
+
   form.addEventListener('submit', function (evt) {
-    window.upload(new FormData(form), function () {
+    window.backend.upload(new FormData(form), function () {
       document.classList.add('hidden');
     });
+
     evt.preventDefault();
   });
 })();
