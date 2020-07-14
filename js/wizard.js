@@ -20,7 +20,7 @@
   * @returns {void}
   */
 
-  var renderWizard = function (wizard) {
+  var collectWizard = function (wizard) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
 
     wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
@@ -33,7 +33,7 @@
   window.wizard = {
     WIZARDS_COAT_COLOR: WIZARDS_COAT_COLOR,
     WIZARDS_EYES_COLOR: WIZARDS_EYES_COLOR,
-    renderWizard: renderWizard,
+    collectWizard: collectWizard,
     similarListElement: similarListElement,
     MAX_WIZARD_SIMILAR: MAX_WIZARD_SIMILAR
   };

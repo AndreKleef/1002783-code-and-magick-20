@@ -132,7 +132,7 @@
     var fragment = document.createDocumentFragment();
 
     for (var i = 0; i < window.wizard.MAX_WIZARD_SIMILAR; i++) {
-      fragment.appendChild(window.wizard.renderWizard(wizards[i]));
+      fragment.appendChild(window.wizard.collectWizard(wizards[i]));
     }
     window.wizard.similarListElement.appendChild(fragment);
 
