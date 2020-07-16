@@ -4,11 +4,6 @@
   var MAX_NAME_LENGTH = 25;
 
   var userNameInput = document.querySelector('.setup-user-name');
-  var wizardCoatColor = document.querySelector('.setup-wizard .wizard-coat');
-  var wizardEyesColor = document.querySelector('.setup-wizard .wizard-eyes');
-  var setupFireBallWrap = document.querySelector('.setup-fireball-wrap');
-
-  var FIREBALLS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', 'e6e848'];
 
   var isSetupInputFocused = false;
 
@@ -47,12 +42,12 @@
   *
   * @return {void}
   */
-  wizardCoatColor.addEventListener('click', function () {
-    var randomCoatColor = window.util.getRandomElement(window.wizard.WIZARDS_COAT_COLOR);
+  // wizardCoatColor.addEventListener('click', function () {
+  //   var randomCoatColor = window.util.getRandomElement(window.wizard.WIZARDS_COAT_COLOR);
 
-    wizardCoatColor.style.fill = randomCoatColor;
-    coatColorInput.value = wizardCoatColor.style.fill;
-  });
+  //   wizardCoatColor.style.fill = randomCoatColor;
+  //   coatColorInput.value = wizardCoatColor.style.fill;
+  // });
 
   /**
   * @author Andrew Slivka <kleef001@gmail.com>
@@ -62,12 +57,12 @@
   *
   * @return {void}
   */
-  wizardEyesColor.addEventListener('click', function () {
-    var randomEyesColor = window.util.getRandomElement(window.wizard.WIZARDS_EYES_COLOR);
+  // wizardEyesColor.addEventListener('click', function () {
+  //   var randomEyesColor = window.util.getRandomElement(window.wizard.WIZARDS_EYES_COLOR);
 
-    wizardEyesColor.style.fill = randomEyesColor;
-    eyesColorInput.value = wizardEyesColor.style.fill;
-  });
+  //   wizardEyesColor.style.fill = randomEyesColor;
+  //   eyesColorInput.value = wizardEyesColor.style.fill;
+  // });
 
   /**
   * @author Andrew Slivka <kleef001@gmail.com>
@@ -77,12 +72,12 @@
   *
   * @return {void}
   */
-  setupFireBallWrap.addEventListener('click', function () {
-    var randomColor = window.util.getRandomElement(FIREBALLS);
+  // setupFireBallWrap.addEventListener('click', function () {
+  //   var randomColor = window.util.getRandomElement(FIREBALLS);
 
-    setupFireBallWrap.style.background = randomColor;
-    fireballColorInput.value = randomColor;
-  });
+  //   setupFireBallWrap.style.background = randomColor;
+  //   fireballColorInput.value = randomColor;
+  // });
   /**
   * @author Andrew Slivka <kleef001@gmail.com>
   *
@@ -106,6 +101,9 @@
   });
 
   window.setup = {
-    isSetupInputFocused: isSetupInputFocused
+    isSetupInputFocused: isSetupInputFocused,
+    coatColorInput: coatColorInput,
+    eyesColorInput: eyesColorInput,
+    fireballColorInput: fireballColorInput
   };
 })();
