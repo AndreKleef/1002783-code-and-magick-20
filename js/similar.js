@@ -2,6 +2,14 @@
 
 (function () {
 
+  var WIZARDS_COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+  var WIZARDS_EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
+  var FIREBALLS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', 'e6e848'];
+
+  var wizardCoatColor = document.querySelector('.setup-wizard .wizard-coat');
+  var wizardEyesColor = document.querySelector('.setup-wizard .wizard-eyes');
+  var setupFireBallWrap = document.querySelector('.setup-fireball-wrap');
+
   var coatColor = 'rgb(101, 137, 164)';
   var eyesColor = 'black';
   var wizards = [];
@@ -38,15 +46,32 @@
     }));
   };
 
-  window.wizard.onEyesChange = function (color) {
-    eyesColor = color;
-    window.debounce(updateWizards);
-  };
+  wizardCoatColor.addEventListener('click', function () {
+    var randomCoatColor = window.util.getRandomElement(WIZARDS_COAT_COLOR);
 
-  window.wizard.onCoatChange = function (color) {
-    coatColor = color;
-    window.debounce(updateWizards);
-  };
+    wizardCoatColor.style.fill = randomCoatColor;
+    window.setup.coatColorInput.value = wizardCoatColor.style.fill;
+
+    coatColor = randomCoatColor;
+    updateWizards();
+  });
+
+  wizardEyesColor.addEventListener('click', function () {
+    var randomEyesColor = window.util.getRandomElement(WIZARDS_EYES_COLOR);
+
+    wizardEyesColor.style.fill = randomEyesColor;
+    window.setup.eyesColorInput.value = wizardEyesColor.style.fill;
+
+    eyesColor = randomEyesColor;
+    updateWizards();
+  });
+
+  setupFireBallWrap.addEventListener('click', function () {
+    var randomColor = window.util.getRandomElement(FIREBALLS);
+
+    setupFireBallWrap.style.background = randomColor;
+    window.setup.fireballColorInput.value = randomColor;
+  });
 
   var successHandler = function (data) {
     wizards = data;
@@ -67,11 +92,5 @@
   };
 
   window.backend.load(successHandler, errorHandler);
-
-  window.similar = {
-    coatColor: coatColor,
-    eyesColor: eyesColor,
-    updateWizards: updateWizards
-  };
 })();
 
